@@ -32,10 +32,10 @@
         <div>
           <p class="eyebrow text-[color:var(--sand)]/70">Contacto</p>
           <div class="mt-5 flex flex-col gap-3">
-            <a href="mailto:hola@gocres.studio" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">hola@gocres.studio</a>
-            <a href="https://linkedin.com" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">LinkedIn</a>
-            <a href="https://behance.net" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Behance</a>
-            <a href="https://instagram.com" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Instagram</a>
+            <a href="mailto:{{ site.Data.social.email }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">{{ site.Data.social.email }}</a>
+            <a href="{{ site.Data.social.linkedin }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">LinkedIn</a>
+            <a href="{{ site.Data.social.behance }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Behance</a>
+            <a href="{{ site.Data.social.instagram }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Instagram</a>
           </div>
         </div>
       </div>

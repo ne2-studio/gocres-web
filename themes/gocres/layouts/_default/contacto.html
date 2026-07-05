@@ -21,7 +21,7 @@
         <div class="space-y-8 rounded-sm border border-border bg-secondary p-8">
           <div>
             <p class="eyebrow text-muted-foreground">Correo</p>
-            <a href="mailto:hola@gocres.studio" class="mt-2 block font-display text-2xl text-foreground">hola@gocres.studio</a>
+            <a href="mailto:{{ site.Data.social.email }}" class="mt-2 block font-display text-2xl text-foreground">{{ site.Data.social.email }}</a>
           </div>
           <div>
             <p class="eyebrow text-muted-foreground">Tiempo de respuesta</p>
@@ -43,7 +43,7 @@
           <p class="eyebrow text-muted-foreground">Recibido</p>
           <h2 class="display-lg mt-6 text-foreground">Gracias. Hablamos pronto.</h2>
           <p class="mt-6 text-muted-foreground">
-            Te responderemos en menos de 24 horas laborables desde <span class="text-foreground">hola@gocres.studio</span>.
+            Te responderemos en menos de 24 horas laborables desde <span class="text-foreground">{{ site.Data.social.email }}</span>.
           </p>
         </div>
       </div>
