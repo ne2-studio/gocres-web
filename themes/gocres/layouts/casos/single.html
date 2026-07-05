@@ -1,0 +1,194 @@
+{{ define "main" }}
+{{ $c := . }}
+{{ $siblings := sort (where site.RegularPages "Section" "casos") "Weight" }}
+{{ $idx := 0 }}
+{{ range $i, $p := $siblings }}{{ if eq $p.File $c.File }}{{ $idx = $i }}{{ end }}{{ end }}
+{{ $nextIdx := mod (add $idx 1) (len $siblings) }}
+{{ $next := index $siblings $nextIdx }}
+
+<article class="pt-24 md:pt-32">
+  <header class="mx-auto max-w-[1440px] px-6 pt-10 md:px-10 md:pt-16">
+    <div class="reveal">
+      <a href="/casos/" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <span aria-hidden>←</span> Todos los casos
+      </a>
+    </div>
+    <div class="reveal mt-10" style="transition-delay:100ms">
+      <div class="flex items-center gap-3">
+        {{ partial "paw.html" (dict "class" "h-4 w-4 text-foreground/50" "rotate" -12) }}
+        <p class="eyebrow text-muted-foreground">{{ $c.Params.tag }}</p>
+      </div>
+    </div>
+    <div class="reveal mt-8" style="transition-delay:200ms">
+      <h1 class="display-xl max-w-5xl">{{ $c.Title }}</h1>
+    </div>
+    <div class="reveal mt-8" style="transition-delay:340ms">
+      <p class="max-w-2xl text-lg text-muted-foreground">{{ $c.Params.excerpt }}</p>
+    </div>
+    <div class="reveal mt-14" style="transition-delay:460ms">
+      <dl class="grid grid-cols-2 gap-6 border-t border-border pt-8 md:grid-cols-4">
+        <div>
+          <dt class="eyebrow text-muted-foreground">Cliente</dt>
+          <dd class="mt-2 font-display text-lg text-foreground">{{ $c.Params.client }}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow text-muted-foreground">Sector</dt>
+          <dd class="mt-2 font-display text-lg text-foreground">{{ $c.Params.sector }}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow text-muted-foreground">Año</dt>
+          <dd class="mt-2 font-display text-lg text-foreground">{{ $c.Params.year }}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow text-muted-foreground">Duración</dt>
+          <dd class="mt-2 font-display text-lg text-foreground">{{ $c.Params.duration }}</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="reveal mx-auto mt-16 max-w-[1440px] px-6 md:px-10" style="transition-delay:200ms">
+    <div class="relative w-full overflow-hidden rounded-sm bg-secondary {{ if eq $c.Params.ratio "aspect-[4/5]" }}aspect-[16/10]{{ else }}{{ $c.Params.ratio }}{{ end }}">
+      <img src="{{ $c.Params.image }}" alt="{{ $c.Title }}" class="h-full w-full object-cover">
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t {{ if $c.Params.dark }}from-[color:var(--ink)]/70{{ else }}from-[color:var(--ink)]/30{{ end }} via-transparent to-transparent"></div>
+    </div>
+  </div>
+
+  <section class="mx-auto max-w-[1440px] px-6 py-24 md:grid md:grid-cols-12 md:gap-10 md:px-10 md:py-32">
+    <div class="md:col-span-4">
+      <div class="reveal">
+        <div class="flex items-center gap-3">
+          {{ partial "paw.html" (dict "class" "h-4 w-4 text-foreground/40") }}
+          <p class="eyebrow text-muted-foreground">Contexto</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 md:col-span-8 md:mt-0">
+      <div class="reveal" style="transition-delay:120ms">
+        <p class="font-display text-2xl leading-snug text-foreground">{{ $c.Params.context }}</p>
+      </div>
+      <div class="reveal mt-14 border-t border-border pt-14" style="transition-delay:240ms">
+        <div class="mb-6 flex items-center gap-3">
+          {{ partial "paw.html" (dict "class" "h-4 w-4 text-foreground/40" "rotate" 12) }}
+          <p class="eyebrow text-muted-foreground">El reto</p>
+        </div>
+        <p class="text-lg text-foreground/85">{{ $c.Params.challenge }}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+    {{ partial "paw-trail.html" (dict "count" 9 "class" "justify-center py-4") }}
+  </div>
+
+  <section class="bg-secondary py-24 md:py-32">
+    <div class="mx-auto max-w-[1440px] px-6 md:grid md:grid-cols-12 md:gap-10 md:px-10">
+      <div class="md:col-span-4">
+        <div class="reveal">
+          <p class="eyebrow text-muted-foreground">Aproximación</p>
+          <h2 class="display-lg mt-6">Cómo lo abordamos.</h2>
+        </div>
+      </div>
+      <ol class="mt-10 md:col-span-8 md:mt-0">
+        {{ range $i, $step := $c.Params.approach }}
+        <li class="border-b border-[color:var(--ink)]/15 py-6 first:border-t">
+          <div class="reveal grid gap-6 md:grid-cols-12" style="transition-delay:{{ mul $i 80 }}ms">
+            <div class="flex items-center gap-3 md:col-span-2">
+              {{ partial "paw.html" (dict "class" "h-4 w-4 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 12 -12)) }}
+              <span class="font-display text-sm text-muted-foreground">0{{ add $i 1 }}</span>
+            </div>
+            <p class="font-display text-xl leading-snug text-foreground md:col-span-10">{{ $step }}</p>
+          </div>
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1440px] px-6 py-24 md:grid md:grid-cols-12 md:gap-10 md:px-10 md:py-32">
+    <div class="md:col-span-4">
+      <div class="reveal">
+        <p class="eyebrow text-muted-foreground">Entregables</p>
+        <ul class="mt-8 space-y-3">
+          {{ range $c.Params.deliverables }}
+          <li class="flex items-start gap-3 text-foreground">
+            {{ partial "paw.html" (dict "class" "mt-1 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}
+            <span>{{ . }}</span>
+          </li>
+          {{ end }}
+        </ul>
+        <div class="mt-10">
+          <p class="eyebrow text-muted-foreground">Servicios</p>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {{ range $c.Params.services }}
+            <li class="rounded-full border border-border px-3 py-1 text-xs uppercase tracking-[0.15em] text-foreground/80">{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-14 grid gap-6 md:col-span-8 md:mt-0">
+      {{ range $i, $g := $c.Params.gallery }}
+      <div class="reveal {{ if eq $i 0 }}relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-secondary{{ else }}relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-secondary{{ end }}" style="transition-delay:{{ mul $i 100 }}ms">
+        <img src="{{ $g }}" alt="" class="h-full w-full object-cover">
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="bg-[color:var(--ink)] py-24 text-[color:var(--cream)] md:py-32">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="reveal">
+        <div class="flex items-center gap-3">
+          {{ partial "paw.html" (dict "class" "h-4 w-4 text-[color:var(--sand)]") }}
+          <p class="eyebrow text-[color:var(--sand)]/70">Resultado</p>
+        </div>
+      </div>
+      <div class="reveal mt-8" style="transition-delay:120ms">
+        <p class="max-w-4xl font-display text-3xl leading-tight md:text-5xl">{{ $c.Params.outcome }}</p>
+      </div>
+      <div class="mt-16 grid gap-px border border-[color:var(--cream)]/15 bg-[color:var(--cream)]/15 md:grid-cols-3">
+        {{ range $i, $m := $c.Params.metrics }}
+        <div class="reveal flex min-h-[200px] flex-col justify-between gap-6 bg-[color:var(--ink)] p-8 md:p-10" style="transition-delay:{{ mul $i 120 }}ms">
+          {{ partial "paw.html" (dict "class" "h-4 w-4 text-[color:var(--sand)]/70" "rotate" -10) }}
+          <div>
+            <p class="font-display text-4xl text-[color:var(--cream)] md:text-6xl">{{ $m.k }}</p>
+            <p class="mt-3 text-sm text-[color:var(--cream)]/70">{{ $m.v }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1200px] px-6 py-24 text-center md:px-10 md:py-32">
+    <div class="reveal">
+      {{ partial "paw-trail.html" (dict "count" 5 "class" "justify-center") }}
+    </div>
+    <div class="reveal mt-10" style="transition-delay:120ms">
+      <blockquote class="font-display text-2xl leading-snug text-foreground md:text-4xl">&ldquo;{{ $c.Params.quote.q }}&rdquo;</blockquote>
+    </div>
+    <div class="reveal mt-8" style="transition-delay:240ms">
+      <p class="text-sm font-medium text-foreground">{{ $c.Params.quote.a }}</p>
+      <p class="text-xs uppercase tracking-[0.2em] text-muted-foreground">{{ $c.Params.quote.r }}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1440px] border-t border-border px-6 py-20 md:px-10 md:py-28">
+    <div class="grid gap-10 md:grid-cols-12">
+      <div class="md:col-span-6">
+        <p class="eyebrow text-muted-foreground">Siguiente caso</p>
+        <a href="{{ $next.RelPermalink }}" class="group mt-6 block">
+          <h3 class="display-lg text-foreground transition group-hover:translate-x-1">{{ $next.Title }} <span aria-hidden>→</span></h3>
+          <p class="mt-3 text-muted-foreground">{{ $next.Params.excerpt }}</p>
+        </a>
+      </div>
+      <div class="md:col-span-6 md:pt-2">
+        <p class="eyebrow text-muted-foreground">¿Tu turno?</p>
+        <h3 class="display-md mt-6">Empecemos por una conversación.</h3>
+        <a href="/contacto/" class="mt-8 inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground">Cuéntanos tu momento →</a>
+      </div>
+    </div>
+  </section>
+</article>
+{{ end }}

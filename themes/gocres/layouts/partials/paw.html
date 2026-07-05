@@ -1,0 +1,10 @@
+{{- $class := .class | default "" -}}
+{{- $rotate := .rotate | default 0 -}}
+{{- $style := printf "transform: rotate(%ddeg)" $rotate -}}
+<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" class="{{ $class }}" style="{{ $style }}">
+  <path d="M16 17c-4.2 0-7.8 3.1-7.8 6.7 0 2.4 1.9 3.8 4.3 3.8 1.4 0 2.4-.5 3.5-.5s2.1.5 3.5.5c2.4 0 4.3-1.4 4.3-3.8C23.8 20.1 20.2 17 16 17z" />
+  <ellipse cx="9" cy="13" rx="2.4" ry="3.2" />
+  <ellipse cx="23" cy="13" rx="2.4" ry="3.2" />
+  <ellipse cx="13" cy="7.5" rx="2.1" ry="2.9" />
+  <ellipse cx="19" cy="7.5" rx="2.1" ry="2.9" />
+</svg>

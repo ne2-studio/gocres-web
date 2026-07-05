@@ -1,3 +1,43 @@
-<li class="nav-item">
-  <a class="nav-link" href="/">Home</a>
-</li>
+{{- $nav := slice
+  (dict "url" "/servicios/" "label" "Servicios")
+  (dict "url" "/metodo/" "label" "Método")
+  (dict "url" "/casos/" "label" "Casos")
+  (dict "url" "/about/" "label" "Estudio")
+-}}
+<header id="site-header" class="sticky top-0 z-50 w-full border-b border-transparent bg-transparent transition-all duration-500">
+  <div class="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 md:px-10">
+    <a href="/" class="group flex items-baseline gap-2">
+      <span class="font-display text-xl font-semibold tracking-tight text-foreground">Gocres</span>
+      <span class="hidden text-[10px] uppercase tracking-[0.28em] text-muted-foreground md:inline">Estudio</span>
+    </a>
+
+    <nav class="hidden items-center gap-10 md:flex">
+      {{ range $nav }}
+        <a href="{{ .url }}" class="text-sm transition hover:text-foreground {{ if eq $.RelPermalink .url }}text-foreground{{ else }}text-foreground/80{{ end }}">{{ .label }}</a>
+      {{ end }}
+    </nav>
+
+    <div class="hidden md:block">
+      <a href="/contacto/" class="group inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition hover:opacity-90">
+        Hablemos
+        <span aria-hidden class="transition group-hover:translate-x-0.5">→</span>
+      </a>
+    </div>
+
+    <button type="button" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" class="flex h-10 w-10 items-center justify-center md:hidden">
+      <span class="flex flex-col gap-1.5">
+        <span class="block h-px w-6 bg-foreground"></span>
+        <span class="block h-px w-6 bg-foreground"></span>
+      </span>
+    </button>
+  </div>
+
+  <div id="nav-mobile" class="hidden border-t border-border bg-background md:hidden">
+    <div class="flex flex-col gap-4 px-6 py-8">
+      {{ range $nav }}
+        <a href="{{ .url }}" class="display-md text-foreground">{{ .label }}</a>
+      {{ end }}
+      <a href="/contacto/" class="mt-4 inline-flex h-12 w-fit items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">Hablemos →</a>
+    </div>
+  </div>
+</header>

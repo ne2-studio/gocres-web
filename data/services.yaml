@@ -1,0 +1,20 @@
+- n: "01"
+  t: "Branding"
+  lead: "Cuando tu marca ya no representa el valor real de tu negocio."
+  d: "Construimos identidades visuales preparadas para acompañar el crecimiento de tu empresa. Estrategia, naming, sistema visual, guidelines y aplicaciones."
+  deliverables: ["Territorio de marca", "Sistema visual", "Guidelines", "Aplicaciones clave"]
+- n: "02"
+  t: "UX/UI"
+  lead: "Cuando utilizar un producto debería resultar tan sencillo como parece."
+  d: "Diseñamos experiencias digitales intuitivas, útiles y centradas en las personas. Research, arquitectura, wireframes, UI system y prototipado."
+  deliverables: ["Research y auditoría", "Arquitectura", "UI System", "Prototipos"]
+- n: "03"
+  t: "Diseño Web"
+  lead: "Cuando tu web necesita convertirse en una herramienta para generar confianza y oportunidades."
+  d: "Creamos experiencias digitales que combinan estrategia, claridad y conversión. Diseño, copy, desarrollo y medición."
+  deliverables: ["Estrategia y copy", "Diseño editorial", "Desarrollo", "Analítica"]
+- n: "04"
+  t: "Diseño Gráfico"
+  lead: "Cuando necesitas mantener una comunicación coherente en cada punto de contacto."
+  d: "Piezas que refuerzan la identidad de tu marca más allá de la pantalla. Editorial, packaging, comunicación y campañas."
+  deliverables: ["Editorial", "Packaging", "Comunicación", "Campañas"]

@@ -1,9 +1,8 @@
 ---
 title: "Política de privacidad"
 layout: single
+url: "/privacidad/"
 ---
-
-# Política de privacidad
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id placerat diam. Curabitur semper iaculis gravida. Nunc enim metus, mollis a placerat vitae, tristique non nulla. Etiam eros metus, placerat a urna at, pharetra bibendum nisi. Sed ultricies, nisi sed accumsan tristique, augue risus ornare tortor, in efficitur enim leo non nisl. Maecenas et porta lacus, eget lacinia risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae metus vel nunc tincidunt aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ligula lorem, vehicula eu ligula eget, molestie laoreet velit. Sed vitae malesuada nunc. Pellentesque gravida varius arcu, sed elementum purus sollicitudin nec. Nullam lobortis sodales condimentum. Cras pretium volutpat sem id laoreet. Curabitur finibus consequat dolor. Nulla placerat mi vitae tristique aliquam.
 

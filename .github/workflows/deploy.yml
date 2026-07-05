@@ -25,6 +25,17 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install CSS build dependencies
+        run: npm ci
+
+      - name: Build CSS
+        run: npm run css:build
+
       - name: Build Hugo site
         run: hugo --minify --environment production
 

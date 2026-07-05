@@ -1,22 +1,412 @@
-{{ define "nav-items" }}
-  {{- partial "navbar.html" . -}}
-{{ end }}
-
 {{ define "main" }}
-<header class="video-header">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="super-big">Ne2 Studio</h1>
+<div class="overflow-hidden">
+
+  {{/* 01 · HERO */}}
+  <section class="relative isolate min-h-[100svh] overflow-hidden bg-background pt-24 md:pt-32">
+    <div class="mx-auto grid max-w-[1440px] gap-14 px-6 pb-24 md:grid-cols-12 md:gap-6 md:px-10 md:pb-32">
+      <div class="md:col-span-7 md:pt-10">
+        <div class="reveal">
+          <p class="eyebrow text-muted-foreground">Branding · UX/UI · Diseño Digital</p>
+        </div>
+        <div class="reveal mt-10" style="transition-delay:120ms">
+          <h1 class="display-xl text-foreground">
+            Haz que tu marca <em class="not-italic text-[color:var(--ink-soft)]">transmita</em> la confianza que tu negocio merece.
+          </h1>
+        </div>
+        <div class="reveal mt-10" style="transition-delay:260ms">
+          <div class="mt-10 max-w-xl space-y-4 text-base text-muted-foreground md:text-lg">
+            <p class="text-foreground/80">Tu negocio está creciendo.</p>
+            <p>Ahora hagamos que tu marca, tu web y tu experiencia digital estén a la misma altura.</p>
+            <p>Construimos identidades y productos digitales que ayudan a startups, empresas en crecimiento y profesionales a generar confianza desde el primer contacto.</p>
+          </div>
+        </div>
+        <div class="reveal mt-12" style="transition-delay:400ms">
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="/contacto/" class="group inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-sm font-medium tracking-wide text-primary-foreground transition hover:opacity-90">
+              Hablemos
+              <span aria-hidden class="transition group-hover:translate-x-1">→</span>
+            </a>
+            <a href="/casos/" class="inline-flex h-14 items-center gap-3 rounded-full border border-border bg-transparent px-7 text-sm font-medium text-foreground transition hover:bg-secondary">
+              Ver proyectos
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative md:col-span-5">
+        <div class="reveal relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-[color:var(--ink)]" style="transition-delay:200ms">
+          <img src="/images/husky-hero.jpg" alt="Retrato editorial de un husky en blanco y negro" width="1280" height="1600" class="h-full w-full object-cover">
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--ink)]/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between text-[color:var(--cream)]">
+            <p class="eyebrow opacity-80">Nº 01 · El guía</p>
+            <p class="font-display text-sm opacity-80">MMXXVI</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</header>
 
-<section id="sect-body">
-  <div class="container">
-    <article>{{ .Content }}</article>
-  </div>
-</section>
+    <div class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex">
+      <span class="eyebrow text-muted-foreground">Descubre</span>
+      <span class="block h-10 w-px animate-pulse bg-foreground/40"></span>
+    </div>
 
+    <div class="border-t border-border/60">
+      <div class="mx-auto max-w-[1440px] px-6 py-6 md:px-10">
+        <p class="max-w-3xl text-xs uppercase tracking-[0.22em] text-muted-foreground">
+          Empresas, startups y profesionales ya han confiado en Gocres para construir la siguiente etapa de su marca.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {{/* 02 · EL ESPEJO */}}
+  <section class="relative bg-background py-32 md:py-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-16 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <div class="reveal">
+            <p class="eyebrow text-muted-foreground">02 · El espejo</p>
+            <h2 class="display-lg mt-8 text-foreground">¿Te resulta familiar?</h2>
+          </div>
+        </div>
+        <div class="md:col-span-8">
+          <ul class="divide-y divide-border">
+            {{ range $i, $pair := site.Data.mirror }}
+            <li class="grid gap-6 py-10 md:grid-cols-12">
+              <div class="reveal md:col-span-1" style="transition-delay:{{ mul $i 80 }}ms">
+                <span class="font-display text-sm text-muted-foreground">0{{ add $i 1 }}</span>
+              </div>
+              <div class="reveal md:col-span-11" style="transition-delay:{{ add (mul $i 80) 60 }}ms">
+                <p class="font-display text-2xl leading-snug text-foreground md:text-3xl">
+                  <span>{{ index $pair 0 }}</span> <span class="text-muted-foreground">{{ index $pair 1 }}</span>
+                </p>
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+          <div class="reveal mt-12" style="transition-delay:200ms">
+            <p class="max-w-xl text-lg text-foreground/80">
+              Si alguna de estas situaciones te resulta familiar, probablemente podamos ayudarte.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* 03 · LA OPORTUNIDAD */}}
+  <section class="relative isolate overflow-hidden bg-[color:var(--ink)] text-[color:var(--cream)]">
+    <div aria-hidden class="absolute inset-0 opacity-20" style="background-image:url('/images/texture-paper.jpg');background-size:cover;mix-blend-mode:overlay"></div>
+    <div class="relative mx-auto max-w-[1440px] px-6 py-32 md:px-10 md:py-48">
+      <div class="grid gap-16 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <div class="reveal">
+            <p class="eyebrow text-[color:var(--sand)]/70">03 · La oportunidad</p>
+            <h2 class="display-lg mt-8 text-[color:var(--cream)]">Imagina que...</h2>
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <div class="space-y-10">
+            {{ range $i, $line := site.Data.opportunity }}
+            <div class="reveal" style="transition-delay:{{ mul $i 100 }}ms">
+              <p class="font-display text-2xl leading-snug text-[color:var(--cream)] md:text-3xl">
+                <span class="mr-6 align-middle font-body text-xs uppercase tracking-[0.28em] text-[color:var(--sand)]/60">0{{ add $i 1 }}</span>
+                {{ $line }}
+              </p>
+              <div class="mt-8 h-px w-full bg-[color:var(--cream)]/12"></div>
+            </div>
+            {{ end }}
+            <div class="reveal" style="transition-delay:600ms">
+              <p class="pt-4 text-xl italic text-[color:var(--sand)]">Eso es lo que un buen diseño puede conseguir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* 04 · BENEFICIOS */}}
+  <section class="bg-background py-32 md:py-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="reveal">
+        <p class="eyebrow text-muted-foreground">04 · Beneficios</p>
+      </div>
+      <div class="reveal mt-8" style="transition-delay:120ms">
+        <h2 class="display-lg max-w-3xl text-foreground">
+          El diseño no cambia un negocio. <span class="text-muted-foreground">La percepción sí.</span>
+        </h2>
+      </div>
+
+      <div class="mt-20 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-3">
+        {{ range $i, $b := site.Data.benefits }}
+        <div class="reveal group flex min-h-[280px] flex-col justify-between gap-10 bg-background p-8 transition-colors hover:bg-secondary md:p-10" style="transition-delay:{{ mul $i 60 }}ms">
+          <span class="font-display text-sm text-muted-foreground">0{{ add $i 1 }}</span>
+          <div>
+            <h3 class="display-md text-foreground">{{ $b.t }}</h3>
+            <p class="mt-4 text-muted-foreground">{{ $b.d }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* 05 · SERVICIOS */}}
+  <section class="bg-secondary py-32 md:py-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-16 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <div class="reveal">
+            <p class="eyebrow text-muted-foreground">05 · Cómo podemos ayudarte</p>
+            <h2 class="display-lg mt-8 text-foreground">Soluciones para empresas que quieren crecer con claridad.</h2>
+          </div>
+        </div>
+        <div class="md:col-span-8">
+          <ul class="divide-y divide-[color:var(--ink)]/15">
+            {{ range $i, $s := site.Data.services_home }}
+            <li class="group py-10">
+              <div class="reveal" style="transition-delay:{{ mul $i 80 }}ms">
+                <a href="/servicios/" class="grid items-baseline gap-6 md:grid-cols-12">
+                  <span class="font-display text-sm text-muted-foreground md:col-span-1">{{ $s.n }}</span>
+                  <div class="md:col-span-11">
+                    <h3 class="display-lg text-foreground transition group-hover:translate-x-1">{{ $s.t }}</h3>
+                    <p class="mt-3 font-display text-lg text-foreground/70">{{ $s.d }}</p>
+                    <p class="mt-2 max-w-2xl text-muted-foreground">{{ $s.l }}</p>
+                  </div>
+                </a>
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* 06 · EL CAMINO */}}
+  <section class="relative isolate overflow-hidden bg-background py-32 md:py-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-16 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <div class="reveal">
+            <p class="eyebrow text-muted-foreground">06 · El camino</p>
+            <h2 class="display-lg mt-8 text-foreground">Así trabajaremos juntos.</h2>
+            <p class="mt-6 max-w-md text-muted-foreground">
+              Un método simple, calmado y probado. Cada paso reduce incertidumbre y acerca tu marca al lugar donde quiere estar.
+            </p>
+          </div>
+          <div class="reveal relative mt-16 hidden aspect-[4/3] w-full overflow-hidden rounded-sm md:block" style="transition-delay:200ms">
+            <img src="/images/footprints-path.jpg" alt="Huellas sobre arena" width="1600" height="912" loading="lazy" class="h-full w-full object-cover">
+          </div>
+        </div>
+        <ol class="md:col-span-7">
+          {{ range $i, $m := site.Data.method_home }}
+          <li class="relative border-t border-border py-10 last:border-b">
+            <div class="reveal grid gap-6 md:grid-cols-12" style="transition-delay:{{ mul $i 90 }}ms">
+              <div class="flex items-center gap-3 md:col-span-1">
+                {{ partial "paw.html" (dict "class" "h-4 w-4 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 14 -14)) }}
+                <span class="font-display text-sm text-muted-foreground">{{ $m.n }}</span>
+              </div>
+              <div class="md:col-span-11">
+                <h3 class="display-md text-foreground">{{ $m.t }}</h3>
+                <p class="mt-3 max-w-2xl text-muted-foreground">{{ $m.d }}</p>
+              </div>
+            </div>
+          </li>
+          {{ end }}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  {{/* 07 · HISTORIAS DE CRECIMIENTO */}}
+  <section class="bg-background pb-32 md:pb-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-16 border-t border-border pt-20 md:grid-cols-12 md:pt-32">
+        <div class="md:col-span-5">
+          <div class="reveal">
+            <p class="eyebrow text-muted-foreground">07 · Historias de crecimiento</p>
+            <h2 class="display-lg mt-8 text-foreground">Cada proyecto deja una huella.</h2>
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <div class="reveal" style="transition-delay:150ms">
+            <p class="font-display text-2xl leading-snug text-foreground/90">
+              No mostramos trabajos. Mostramos empresas que decidieron dar un paso adelante.
+            </p>
+          </div>
+          <div class="reveal mt-10" style="transition-delay:280ms">
+            <ul class="grid grid-cols-2 gap-8 text-sm text-muted-foreground md:grid-cols-4">
+              <li><span class="block text-foreground">Dónde estaban.</span></li>
+              <li><span class="block text-foreground">Qué necesitaban.</span></li>
+              <li><span class="block text-foreground">Qué construimos juntos.</span></li>
+              <li><span class="block text-foreground">Qué cambió después.</span></li>
+            </ul>
+          </div>
+          <div class="reveal mt-12" style="transition-delay:400ms">
+            <a href="/casos/" class="group inline-flex h-14 items-center gap-3 rounded-full border border-border px-7 text-sm font-medium text-foreground transition hover:bg-secondary">
+              Explorar casos de estudio
+              <span aria-hidden class="transition group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {{ $featured := first 4 (where site.RegularPages "Section" "casos") }}
+      <div class="mt-20 grid gap-6 md:grid-cols-12">
+        {{ $spans := slice "md:col-span-7" "md:col-span-5" "md:col-span-5" "md:col-span-7" }}
+        {{ range $i, $c := $featured }}
+        <div class="reveal {{ index $spans $i }}" style="transition-delay:{{ mul $i 100 }}ms">
+          {{ partial "case-card.html" $c }}
+        </div>
+        {{ end }}
+      </div>
+
+      <div class="reveal mt-16" style="transition-delay:200ms">
+        {{ partial "paw-trail.html" (dict "count" 10 "class" "justify-center") }}
+      </div>
+    </div>
+  </section>
+
+  {{/* 08 · FUNDADOR */}}
+  <section class="bg-secondary py-32 md:py-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-16 md:grid-cols-12 md:gap-10">
+        <div class="reveal md:col-span-5">
+          <div class="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+            <img src="/images/founder-jaime.jpg" alt="Jaime, fundador de Gocres" width="1024" height="1280" loading="lazy" class="h-full w-full object-cover">
+          </div>
+        </div>
+        <div class="md:col-span-7 md:pt-10">
+          <div class="reveal">
+            <p class="eyebrow text-muted-foreground">08 · Quién guía el camino</p>
+            <h2 class="display-lg mt-8 text-foreground">Detrás de cada proyecto hay una conversación.</h2>
+          </div>
+          <div class="reveal mt-10" style="transition-delay:200ms">
+            <div class="space-y-5 text-lg text-foreground/85">
+              <p>Hola. Soy Jaime.</p>
+              <p>Fundé Gocres con una idea muy sencilla:</p>
+              <p class="font-display text-2xl leading-snug text-foreground">
+                El diseño no debería servir únicamente para hacer que una empresa se vea mejor. Debería ayudar a que transmita con claridad el valor que ya existe detrás de ella.
+              </p>
+              <p class="text-muted-foreground">
+                Por eso trabajo desde la estrategia, la escucha y la colaboración. No para imponer soluciones. Sino para construirlas contigo.
+              </p>
+            </div>
+          </div>
+          <div class="reveal mt-10" style="transition-delay:360ms">
+            <a href="/about/" class="group inline-flex h-12 items-center gap-3 border-b border-foreground pb-2 text-sm font-medium text-foreground">
+              Conocer mi historia
+              <span aria-hidden class="transition group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* 09 · CLIENTES — Marquee */}}
+  <section class="border-y border-border bg-background py-20">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <p class="eyebrow text-muted-foreground">09 · Clientes</p>
+          <h2 class="display-md mt-6 text-foreground">Empresas que ya decidieron dar el siguiente paso.</h2>
+        </div>
+        <div class="md:col-span-8">
+          <p class="max-w-md text-muted-foreground">
+            Cada proyecto es diferente. Pero todos parten del mismo objetivo: construir una marca preparada para crecer.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-14 overflow-hidden">
+      <div class="flex w-max gap-16 whitespace-nowrap px-6" style="animation: marquee 40s linear infinite">
+        {{ range seq 3 }}
+          {{ range site.Data.clients }}
+          <span class="font-display text-3xl font-medium tracking-tight text-foreground/50 md:text-5xl">
+            {{ . }}<span class="ml-16 text-foreground/20">✦</span>
+          </span>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* 10 · TESTIMONIOS */}}
+  <section class="bg-background py-32 md:py-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="reveal">
+        <p class="eyebrow text-muted-foreground">10 · Testimonios</p>
+        <h2 class="display-lg mt-8 max-w-3xl text-foreground">
+          Lo más valioso no es lo que decimos nosotros. <span class="text-muted-foreground">Es lo que cambia después de trabajar juntos.</span>
+        </h2>
+      </div>
+
+      <div class="mt-20 grid gap-6 md:grid-cols-3">
+        {{ range $i, $t := site.Data.testimonials }}
+        <div class="reveal flex min-h-[340px] flex-col justify-between gap-10 rounded-sm border border-border bg-background p-8 md:p-10" style="transition-delay:{{ mul $i 120 }}ms">
+          <p class="font-display text-xl leading-snug text-foreground">&ldquo;{{ $t.q }}&rdquo;</p>
+          <div>
+            <p class="text-sm font-medium text-foreground">{{ $t.a }}</p>
+            <p class="text-xs uppercase tracking-[0.2em] text-muted-foreground">{{ $t.r }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* 11 · FAQ */}}
+  <section class="bg-background pb-32 md:pb-48">
+    <div class="mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="grid gap-16 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <p class="eyebrow text-muted-foreground">11 · FAQ</p>
+          <h2 class="display-lg mt-8 text-foreground">Preguntas frecuentes</h2>
+        </div>
+        <div class="md:col-span-8">
+          <div class="border-t border-border">
+            {{ range site.Data.faq }}
+            {{ partial "faq-item.html" . }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* 12 · CTA FINAL */}}
+  <section class="relative isolate overflow-hidden bg-[color:var(--ink)] py-32 md:py-48">
+    <div aria-hidden class="absolute inset-0 opacity-30" style="background-image:url('/images/footprints-path.jpg');background-size:cover;background-position:center;filter:grayscale(1) brightness(0.4)"></div>
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[color:var(--ink)] via-[color:var(--ink)]/70 to-[color:var(--ink)]"></div>
+    <div class="relative mx-auto max-w-[1440px] px-6 md:px-10">
+      <div class="reveal">
+        <p class="eyebrow text-[color:var(--sand)]/70">12 · Empecemos</p>
+      </div>
+      <div class="reveal mt-10" style="transition-delay:120ms">
+        <h2 class="display-xl max-w-5xl text-[color:var(--cream)]">
+          Tu negocio ya está creciendo. Ahora hagamos que <em class="not-italic text-[color:var(--sand)]">tu marca</em> también lo haga.
+        </h2>
+      </div>
+      <div class="reveal mt-16" style="transition-delay:280ms">
+        <div class="grid gap-10 md:grid-cols-12">
+          <div class="space-y-5 text-lg text-[color:var(--cream)]/80 md:col-span-6">
+            <p>Las mejores marcas no aparecen por casualidad.</p>
+            <p>Se construyen paso a paso.</p>
+            <p>Si crees que ha llegado el momento de dar el siguiente, me encantará recorrer ese camino contigo.</p>
+          </div>
+          <div class="md:col-span-6 md:pt-2">
+            <a href="/contacto/" class="group inline-flex h-16 items-center gap-4 rounded-full bg-[color:var(--cream)] px-10 text-base font-medium text-[color:var(--ink)] transition hover:bg-[color:var(--sand)]">
+              Empecemos
+              <span aria-hidden class="text-2xl transition group-hover:translate-x-1">→</span>
+            </a>
+            <p class="mt-6 text-sm text-[color:var(--cream)]/60">Respuesta en menos de 24 horas laborables · hola@gocres.studio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
 {{ end }}

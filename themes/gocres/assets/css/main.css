@@ -1,0 +1,198 @@
+@import "tailwindcss" source(none);
+@source "../../layouts";
+@source "../../../../content";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   GOCRES — Design System
+   Editorial · Premium · Boutique branding studio
+   Colors: #111310 · #232323 · #FFFFFF · #F9F3E9 · #DECFB7
+   Type: Space Grotesk (display) · Work Sans (body)
+   ============================================================ */
+
+@theme inline {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-cream: var(--cream);
+  --color-sand: var(--sand);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --shadow-editorial: 0 30px 80px -40px oklch(0.15 0.005 60 / 0.35);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Brand palette in oklch */
+  --ink: oklch(0.16 0.005 90);          /* #111310 */
+  --ink-soft: oklch(0.24 0.004 90);     /* #232323 */
+  --cream: oklch(0.968 0.014 82);       /* #F9F3E9 */
+  --sand: oklch(0.858 0.032 78);        /* #DECFB7 */
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --surface: oklch(1 0 0);
+  --surface-alt: var(--sand);
+
+  --primary: var(--ink);
+  --primary-foreground: var(--cream);
+  --secondary: var(--sand);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.93 0.012 82);
+  --muted-foreground: oklch(0.42 0.008 80);
+  --accent: var(--sand);
+  --accent-foreground: var(--ink);
+
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+
+  --border: oklch(0.87 0.014 82);
+  --line: oklch(0.82 0.018 82);
+  --input: oklch(0.87 0.014 82);
+  --ring: var(--ink);
+
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: var(--cream);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+  ::selection {
+    background: var(--ink);
+    color: var(--cream);
+  }
+}
+
+/* Editorial utility classes */
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 5.5vw, 4.75rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+@utility eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+@utility rule-thin {
+  height: 1px;
+  background: var(--line);
+  width: 100%;
+}
+
+/* Reveal-on-scroll (progressive enhancement over IntersectionObserver, see js/main.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Motion */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.3333%); }
+}
+
+/* Header scroll state */
+#site-header {
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+}
+#site-header.is-scrolled {
+  border-bottom-color: color-mix(in oklch, var(--border) 60%, transparent);
+  background-color: color-mix(in oklch, var(--background) 80%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+/* Contact form chip toggle */
+.chip.is-active {
+  border-color: var(--foreground);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* FAQ accordion caret */
+details.faq > summary {
+  list-style: none;
+}
+details.faq > summary::-webkit-details-marker {
+  display: none;
+}
+details.faq[open] .faq-icon {
+  transform: rotate(45deg);
+}

@@ -1,0 +1,20 @@
+{{- $dark := .Params.dark -}}
+<a href="{{ .RelPermalink }}" class="group relative block aspect-[16/11] w-full overflow-hidden rounded-sm bg-secondary">
+  <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy" class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+  <div class="absolute inset-0 bg-gradient-to-t {{ if $dark }}from-[color:var(--ink)]/80 via-[color:var(--ink)]/20{{ else }}from-[color:var(--ink)]/70 via-[color:var(--ink)]/10{{ end }} to-transparent"></div>
+  <div class="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
+    <div class="flex items-center justify-between">
+      <p class="eyebrow text-[color:var(--cream)]/80">{{ .Params.tag }}</p>
+      {{ partial "paw.html" (dict "class" "h-4 w-4 text-[color:var(--cream)]/70" "rotate" -12) }}
+    </div>
+    <div>
+      <h3 class="display-md text-[color:var(--cream)]">{{ .Title }}</h3>
+      <div class="mt-3 flex items-center justify-between">
+        <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--cream)]/70">{{ .Params.meta }}</p>
+        <span class="inline-flex items-center gap-2 text-xs text-[color:var(--cream)]/80 opacity-0 transition group-hover:opacity-100">
+          Ver caso <span aria-hidden>→</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</a>

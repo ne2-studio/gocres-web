@@ -1,9 +1,8 @@
 ---
 title: "Aviso legal"
 layout: "single"
+url: "/aviso-legal/"
 ---
-
-# Aviso legal
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur dolor at vulputate gravida. Maecenas id ultricies mi. Nam quis tincidunt lorem, sit amet euismod justo. Praesent nec bibendum tortor, vitae porta mi. Donec semper blandit lectus, non scelerisque lacus sodales ut. Fusce eu interdum mauris. Curabitur pellentesque tellus quis fermentum lobortis.
 

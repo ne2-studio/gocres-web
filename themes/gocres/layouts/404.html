@@ -1,16 +1,16 @@
 {{ define "main" }}
-<section id="sect-error" class="light">
-  <div class="container">
-    <div class="row mt-3 mb-3">
-      <div class="col-md-12">
-        <h2>¡Oops! Algo no funcionó...</h2>
-        <p>
-          <a href="javascript:history.back()"
-            >Vuelve atrás y sigue navegando.</a
-          >
-        </p>
-      </div>
+<div class="flex min-h-[70svh] items-center justify-center bg-background px-6">
+  <div class="max-w-lg text-center">
+    <p class="eyebrow text-muted-foreground">404 · No encontrado</p>
+    <h1 class="display-lg mt-6 text-foreground">Esta página aún no existe.</h1>
+    <p class="mt-4 text-muted-foreground">
+      Puede que hayamos movido el camino. Vuelve al inicio y sigamos.
+    </p>
+    <div class="mt-10">
+      <a href="/" class="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium tracking-wide text-primary-foreground transition hover:opacity-90">
+        Volver al inicio
+      </a>
     </div>
   </div>
-</section>
+</div>
 {{ end }}

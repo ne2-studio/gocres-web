@@ -1,9 +1,5 @@
 ---
-title: "Gocres Studio: Sitio web oficial"
-description: ""
-date: 2024-12-05T00:00:00+02:00
+title: "Gocres — La confianza se diseña"
+description: "Estudio boutique de branding, UX/UI y diseño digital. Ayudamos a empresas en crecimiento a transmitir el valor real de su negocio."
+ogDescription: "Diseñamos identidades y experiencias digitales que generan confianza desde el primer contacto."
 ---
-
-## Construimos productos digitales que nos gustaría que existieran.
-
-Ne2 Studio nació de una idea muy sencilla.

@@ -1,0 +1,71 @@
+{{ define "main" }}
+<div class="pt-24 md:pt-40">
+  <section class="mx-auto max-w-[1440px] px-6 pb-24 md:grid md:grid-cols-12 md:gap-10 md:px-10 md:pb-32">
+    <div class="md:col-span-7">
+      <div class="reveal">
+        <p class="eyebrow text-muted-foreground">Método</p>
+      </div>
+      <div class="reveal mt-8" style="transition-delay:120ms">
+        <h1 class="display-xl text-foreground">
+          El camino no se improvisa. <span class="text-muted-foreground">Se recorre.</span>
+        </h1>
+      </div>
+      <div class="reveal mt-8" style="transition-delay:240ms">
+        <p class="max-w-xl text-lg text-muted-foreground">
+          Un método simple, calmado y probado. Cada fase reduce incertidumbre y acerca tu marca al lugar donde quiere estar.
+        </p>
+      </div>
+    </div>
+    <div class="reveal mt-14 md:col-span-5 md:mt-0" style="transition-delay:200ms">
+      <div class="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+        <img src="/images/footprints-path.jpg" alt="Huellas de un camino" class="h-full w-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border">
+    {{ $total := len site.Data.method }}
+    {{ range $i, $p := site.Data.method }}
+    <div class="border-b border-border">
+      <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
+        <div class="md:col-span-3">
+          <div class="reveal">
+            <div class="flex items-center gap-3">
+              {{ partial "paw.html" (dict "class" "h-5 w-5 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 14 -14)) }}
+              <p class="font-display text-sm text-muted-foreground">{{ $p.n }} / 05</p>
+            </div>
+            <h2 class="display-lg mt-4 text-foreground">{{ $p.t }}</h2>
+          </div>
+        </div>
+        <div class="md:col-span-6">
+          <div class="reveal" style="transition-delay:120ms">
+            <p class="font-display text-2xl leading-snug text-foreground">{{ $p.d }}</p>
+            <p class="mt-6 text-muted-foreground">{{ $p.long }}</p>
+          </div>
+        </div>
+        <div class="md:col-span-3">
+          <div class="reveal" style="transition-delay:200ms">
+            <p class="eyebrow mb-4 text-muted-foreground">Entregables</p>
+            <ul class="space-y-3 text-sm text-foreground">
+              {{ range $p.outputs }}
+              <li class="flex items-start gap-3">
+                {{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}
+                {{ . }}
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ if lt (add $i 1) $total }}
+          {{ partial "paw-trail.html" (dict "count" 5 "class" "mt-10 md:hidden") }}
+          {{ else }}
+          <div class="reveal mt-8" style="transition-delay:300ms">
+            <a href="/contacto/" class="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">Empecemos →</a>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </section>
+</div>
+{{ end }}

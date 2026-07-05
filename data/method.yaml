@@ -1,0 +1,25 @@
+- n: "01"
+  t: "Descubrir"
+  d: "Entendemos el punto en el que está tu negocio."
+  long: "Auditoría del contexto actual, conversaciones con equipo y clientes, análisis de mercado y competencia. Antes de proponer nada, escuchamos."
+  outputs: ["Auditoría", "Entrevistas", "Benchmarks"]
+- n: "02"
+  t: "Comprender"
+  d: "Analizamos el contexto antes de tomar decisiones."
+  long: "Sintetizamos hallazgos en una lectura clara del negocio. Insights, oportunidades y riesgos sobre los que construir la estrategia."
+  outputs: ["Insights", "Prioridades", "Riesgos"]
+- n: "03"
+  t: "Definir"
+  d: "Trazamos una dirección clara."
+  long: "Estrategia de marca, territorio verbal y visual, arquitectura de la experiencia. Consenso antes de mover un solo píxel."
+  outputs: ["Estrategia", "Territorio", "Arquitectura"]
+- n: "04"
+  t: "Construir"
+  d: "Convertimos la estrategia en una solución sólida."
+  long: "Sistema visual, UI, copy, desarrollo. Iteración honesta, sin sorpresas. Entregamos algo listo para vivir en el mundo real."
+  outputs: ["Sistema visual", "UI · Web", "Guidelines"]
+- n: "05"
+  t: "Evolucionar"
+  d: "Porque una buena marca nunca deja de crecer."
+  long: "Medición, iteración y acompañamiento. Nuestro trabajo no termina en la entrega: seguimos ayudándote a evolucionar el sistema."
+  outputs: ["Medición", "Iteración", "Acompañamiento"]

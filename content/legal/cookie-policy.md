@@ -3,8 +3,6 @@ title: "Política de cookies"
 layout: single
 ---
 
-# Política de cookies
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent viverra mauris vitae scelerisque mattis. Mauris quam urna, vestibulum et pellentesque at, tempor sed arcu. Curabitur faucibus dui nec aliquet vehicula. Donec nulla arcu, ultrices gravida enim a, venenatis mattis odio. Aliquam risus eros, tristique at dolor eget, scelerisque tristique leo. Nulla convallis sagittis diam, sit amet efficitur justo egestas id. Suspendisse et metus placerat, luctus felis ut, elementum dolor.
 
 Praesent rutrum urna sit amet pretium volutpat. Curabitur tempor sagittis purus sed tincidunt. Pellentesque pellentesque varius lectus nec hendrerit. Ut nec dictum tortor. Quisque porttitor et nibh at efficitur. Sed egestas consequat nunc nec laoreet. Curabitur fringilla in diam eu ultricies. Vestibulum suscipit dignissim nibh nec mattis. Aenean aliquet vestibulum nunc sed ultricies. Donec lacus ex, mattis eu dui at, congue placerat ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus egestas metus erat, quis pellentesque quam gravida ut. Vivamus quis purus lectus. Fusce luctus pellentesque pretium.

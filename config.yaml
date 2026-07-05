@@ -6,8 +6,7 @@ defaultContentLanguage: es
 languages:
   es:
     weight: 1
-  en:
-    weight: 2
 metaDataFormat: yaml
 params:
   gtm_id: GTM-5VMWC8QS
+  description: "Gocres es un estudio boutique de branding, UX/UI y diseño digital. Diseñamos identidades y experiencias digitales que transmiten la confianza que tu negocio merece."
