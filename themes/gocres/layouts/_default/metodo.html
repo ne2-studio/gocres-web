@@ -28,19 +28,21 @@
     {{ range $i, $p := site.Data.method }}
     <div class="border-b border-border">
       <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
-        <div class="md:col-span-3">
-          <div class="reveal">
-            <div class="flex items-center gap-3">
-              {{ partial "paw.html" (dict "class" "h-5 w-5 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 14 -14)) }}
-              <p class="font-display text-sm text-muted-foreground">{{ $p.n }} / 05</p>
+        <div class="grid gap-10 md:col-span-9 lg:grid-cols-9">
+          <div class="lg:col-span-3">
+            <div class="reveal">
+              <div class="flex items-center gap-3">
+                {{ partial "paw.html" (dict "class" "h-5 w-5 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 14 -14)) }}
+                <p class="font-display text-sm text-muted-foreground">{{ $p.n }} / 05</p>
+              </div>
+              <h2 class="display-lg mt-4 text-foreground">{{ $p.t }}</h2>
             </div>
-            <h2 class="display-lg mt-4 text-foreground">{{ $p.t }}</h2>
           </div>
-        </div>
-        <div class="md:col-span-6">
-          <div class="reveal" style="transition-delay:120ms">
-            <p class="font-display text-2xl leading-snug text-foreground">{{ $p.d }}</p>
-            <p class="mt-6 text-muted-foreground">{{ $p.long }}</p>
+          <div class="lg:col-span-6">
+            <div class="reveal" style="transition-delay:120ms">
+              <p class="font-display text-2xl leading-snug text-foreground">{{ $p.d }}</p>
+              <p class="mt-6 text-muted-foreground">{{ $p.long }}</p>
+            </div>
           </div>
         </div>
         <div class="md:col-span-3">
