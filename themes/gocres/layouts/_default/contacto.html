@@ -38,17 +38,7 @@
 
   <section class="border-t border-border bg-background">
     <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
-      <div id="contact-thanks" class="hidden">
-        <div class="reveal is-visible mx-auto max-w-2xl text-center">
-          <p class="eyebrow text-muted-foreground">Recibido</p>
-          <h2 class="display-lg mt-6 text-foreground">Gracias. Hablamos pronto.</h2>
-          <p class="mt-6 text-muted-foreground">
-            Te responderemos en menos de 24 horas laborables desde <span class="text-foreground">{{ site.Data.social.email }}</span>.
-          </p>
-        </div>
-      </div>
-
-      <form id="contact-form" class="mx-auto grid max-w-4xl gap-10">
+      <form id="contact-form" accept-charset="UTF-8" method="POST" action="https://leadhub-backend.ne2.studio/api/forms/gocres/submit" class="mx-auto grid max-w-4xl gap-10">
         <label class="block" for="name">
           <span class="eyebrow text-muted-foreground">01 · Cómo te llamas</span>
           <div class="mt-3">
@@ -98,9 +88,15 @@
 
         <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
           <p class="text-xs text-muted-foreground">Al enviar aceptas nuestra política de privacidad.</p>
-          <button type="submit" class="group inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition hover:opacity-90">
-            Enviar mensaje
-            <span aria-hidden class="transition group-hover:translate-x-1">→</span>
+          <button type="submit" id="contact-submit" class="group inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition hover:opacity-90 disabled:cursor-wait disabled:opacity-70">
+            <span class="contact-submit-idle inline-flex items-center gap-3">
+              Enviar mensaje
+              <span aria-hidden class="transition group-hover:translate-x-1">→</span>
+            </span>
+            <span class="contact-submit-loading hidden items-center gap-3">
+              <span aria-hidden class="h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground/40 border-t-primary-foreground"></span>
+              Enviando…
+            </span>
           </button>
         </div>
       </form>

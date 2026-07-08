@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="pt-24 md:pt-40">
+  <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
+    <div class="reveal is-visible mx-auto max-w-2xl text-center">
+      <p class="eyebrow text-muted-foreground">Recibido</p>
+      <h1 class="display-lg mt-6 text-foreground">Gracias. Hablamos pronto.</h1>
+      <p class="mt-6 text-muted-foreground">
+        Te responderemos en menos de 24 horas laborables desde <span class="text-foreground">{{ site.Data.social.email }}</span>.
+      </p>
+      <div class="mt-10">
+        <a href="/" class="group inline-flex h-14 items-center gap-3 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition hover:opacity-90">
+          Volver al inicio
+          <span aria-hidden class="transition group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

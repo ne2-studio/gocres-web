@@ -46,14 +46,20 @@
     }
   }
 
-  // Contact form fake-submit
+  // Contact form: real submit to remote endpoint, show a loading state
+  // while the browser waits for the backend's redirect to /gracias/.
   var contactForm = document.getElementById("contact-form");
-  var contactThanks = document.getElementById("contact-thanks");
-  if (contactForm && contactThanks) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      contactForm.classList.add("hidden");
-      contactThanks.classList.remove("hidden");
+  var contactSubmit = document.getElementById("contact-submit");
+  if (contactForm && contactSubmit) {
+    var idleState = contactSubmit.querySelector(".contact-submit-idle");
+    var loadingState = contactSubmit.querySelector(".contact-submit-loading");
+    contactForm.addEventListener("submit", function () {
+      contactSubmit.disabled = true;
+      if (idleState) idleState.classList.add("hidden");
+      if (loadingState) {
+        loadingState.classList.remove("hidden");
+        loadingState.classList.add("inline-flex");
+      }
     });
   }
 
