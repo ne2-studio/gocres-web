@@ -1,7 +1,7 @@
 {{- $nav := slice
   (dict "url" "/servicios/" "label" "Servicios")
   (dict "url" "/metodo/" "label" "Método")
-  (dict "url" "/casos/" "label" "Casos")
+  (dict "url" "/casos/" "label" "Casos" "hidden" true)
   (dict "url" "/about/" "label" "Estudio")
 -}}
 <header id="site-header" class="sticky top-0 z-50 w-full border-b border-transparent bg-transparent transition-all duration-500">
@@ -13,7 +13,9 @@
 
     <nav class="hidden items-center gap-10 md:flex">
       {{ range $nav }}
+        {{ if not .hidden }}
         <a href="{{ .url }}" class="text-sm transition hover:text-foreground {{ if eq $.RelPermalink .url }}text-foreground{{ else }}text-foreground/80{{ end }}">{{ .label }}</a>
+        {{ end }}
       {{ end }}
     </nav>
 
@@ -35,7 +37,9 @@
   <div id="nav-mobile" class="hidden border-t border-border bg-background md:hidden">
     <div class="flex flex-col gap-4 px-6 py-8">
       {{ range $nav }}
+        {{ if not .hidden }}
         <a href="{{ .url }}" class="display-md text-foreground">{{ .label }}</a>
+        {{ end }}
       {{ end }}
       <a href="/contacto/" class="mt-4 inline-flex h-12 w-fit items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">Hablemos →</a>
     </div>
