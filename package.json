@@ -6,6 +6,7 @@
     "css:watch": "tailwindcss -i themes/gocres/assets/css/main.css -o themes/gocres/static/css/main.css --watch"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/cli": "^4.2.1",
     "tailwindcss": "^4.2.1"
   }
