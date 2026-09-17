@@ -175,17 +175,6 @@
   to { transform: translateX(-33.3333%); }
 }
 
-/* Header scroll state */
-#site-header {
-  border-bottom: 1px solid transparent;
-  background-color: transparent;
-}
-#site-header.is-scrolled {
-  border-bottom-color: color-mix(in oklch, var(--border) 60%, transparent);
-  background-color: color-mix(in oklch, var(--background) 80%, transparent);
-  backdrop-filter: blur(12px);
-}
-
 /* Contact form chip toggle */
 .chip.is-active {
   border-color: var(--foreground);

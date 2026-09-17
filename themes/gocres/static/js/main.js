@@ -1,16 +1,6 @@
 (function () {
   "use strict";
 
-  // Header scroll state
-  var header = document.getElementById("site-header");
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 8);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
   // Mobile nav toggle
   var navToggle = document.getElementById("nav-toggle");
   var navMobile = document.getElementById("nav-mobile");

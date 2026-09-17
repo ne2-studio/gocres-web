@@ -175,12 +175,11 @@ components:
     borderColor: "{colors.border}"
     typography: "{typography.heading-sm}"
   nav-header:
-    backgroundColor: transparent
+    backgroundColor: "{colors.neutral}"
     textColor: "{colors.on-surface}"
+    borderColor: "{colors.border}"
     height: 80px
-  nav-header-scrolled:
-    backgroundColor: "color-mix(in oklch, {colors.neutral} 80%, transparent)"
-    borderColor: "color-mix(in oklch, {colors.border} 60%, transparent)"
+    note: "Static cream fill + 1px bottom hairline at all times (confirmed by the Figma header sitting at the very top of the page composition, not a scroll-triggered state) — no transparent-at-top/opaque-on-scroll transition."
   footer:
     backgroundColor: "{colors.ink-deep}"
     textColor: "{colors.border}"
@@ -381,12 +380,11 @@ round for action.**
 - **FAQ accordion:** Native `<details>`/`<summary>`, no JS required for
   the open/close mechanic. A circular `+` icon rotates 45° to become a
   visual `×` when the panel is open (`details[open] .faq-icon`).
-- **Navigation header:** Sticky, transparent at the top of the page;
-  gains a translucent blurred cream background and a hairline bottom
-  border once the page scrolls (`#site-header.is-scrolled`), via
-  `backdrop-filter: blur(12px)` and `color-mix()` transparency rather than
-  a hard color swap. Even at rest, the header carries a permanent 1px
-  `border`-colored (`#D9D3CA`) bottom hairline against the cream background.
+- **Navigation header:** Sticky, always a solid cream (`#F9F3E9`)
+  background with a permanent 1px `border`-colored (`#D9D3CA`) bottom
+  hairline — not a scroll-triggered transition. The logo is the
+  illustrated wolf-mark + "ocres" wordmark lockup (`partial "logo.html"`),
+  not a text-only wordmark.
 - **Footer:** The one section that is never cream, sand, or ink — it uses
   its own dedicated `ink-deep` (`#0C0C0C`) background with `border-deep`
   (`#33322E`) hairlines, sand-colored eyebrow labels, and `border`-colored

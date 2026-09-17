@@ -1,57 +1,40 @@
-<footer class="relative isolate overflow-hidden bg-[color:var(--ink)] text-[color:var(--cream)]">
+<footer class="border-t border-border-deep bg-ink-deep text-border">
   <div class="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
     <div class="grid gap-16 md:grid-cols-12">
       <div class="md:col-span-6">
-        <p class="eyebrow text-[color:var(--sand)]/70">Gocres · Estudio</p>
-        <h2 class="display-lg mt-8 max-w-xl text-[color:var(--cream)]">
-          La confianza se diseña. Y se camina paso a paso.
-        </h2>
-        <a href="/contacto/" class="mt-10 inline-flex h-12 items-center gap-3 rounded-full bg-[color:var(--cream)] px-7 text-sm font-medium text-[color:var(--ink)] transition hover:bg-[color:var(--sand)]">
-          Empecemos <span aria-hidden>→</span>
+        <a href="/" class="group inline-flex items-center">
+          {{ partial "logo.html" (dict "variant" "negative" "class" "h-12 md:h-16") }}
         </a>
       </div>
 
-      <div class="grid grid-cols-2 gap-10 md:col-span-6 md:grid-cols-3">
+      <div class="grid grid-cols-2 gap-10 md:col-span-6 md:col-start-9">
         <div>
-          <p class="eyebrow text-[color:var(--sand)]/70">Estudio</p>
+          <p class="eyebrow text-[color:var(--sand)]">Gocres</p>
           <div class="mt-5 flex flex-col gap-3">
-            <a href="/about/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Sobre nosotros</a>
-            <a href="/metodo/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Método</a>
-            {{/* <a href="/casos/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Casos</a> */}}
+            <a href="/about/" class="text-sm text-border transition hover:text-sand">Sobre mí</a>
+            <a href="/servicios/" class="text-sm text-border transition hover:text-sand">Branding</a>
+            <a href="/metodo/" class="text-sm text-border transition hover:text-sand">Metodología</a>
+            {{/* Casos de éxito stays out of nav/footer until content/casos is ready to launch. */}}
           </div>
         </div>
         <div>
-          <p class="eyebrow text-[color:var(--sand)]/70">Servicios</p>
+          <p class="eyebrow text-[color:var(--sand)]">Contacto</p>
           <div class="mt-5 flex flex-col gap-3">
-            <a href="/servicios/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Branding</a>
-            <a href="/servicios/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">UX/UI</a>
-            <a href="/servicios/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Diseño Web</a>
-            <a href="/servicios/" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Gráfico</a>
-          </div>
-        </div>
-        <div>
-          <p class="eyebrow text-[color:var(--sand)]/70">Contacto</p>
-          <div class="mt-5 flex flex-col gap-3">
-            <a href="mailto:{{ site.Data.social.email }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">{{ site.Data.social.email }}</a>
-            <a href="{{ site.Data.social.linkedin }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">LinkedIn</a>
-            {{/* <a href="{{ site.Data.social.behance }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Behance</a> */}}
-            {{/* <a href="{{ site.Data.social.instagram }}" class="text-sm text-[color:var(--cream)]/80 transition hover:text-[color:var(--sand)]">Instagram</a> */}}
+            <a href="mailto:{{ site.Data.social.email }}" class="text-sm text-border transition hover:text-sand">{{ site.Data.social.email }}</a>
+            <a href="{{ site.Data.social.linkedin }}" class="text-sm text-border transition hover:text-sand">LinkedIn</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mt-24 border-t border-[color:var(--cream)]/15 pt-10">
-      <div aria-hidden class="select-none overflow-hidden font-display font-semibold leading-none tracking-tight text-[color:var(--cream)]/95" style="font-size: clamp(4rem, 18vw, 18rem); letter-spacing: -0.04em">
-        Gocres
-      </div>
-    </div>
-
-    <div class="mt-10 flex flex-col justify-between gap-4 text-xs text-[color:var(--cream)]/60 md:flex-row">
-      <p>© {{ now.Format "2006" }} Gocres Studio. Todos los derechos reservados.</p>
-      <div class="flex gap-6">
-        <a href="/aviso-legal/" class="transition hover:text-[color:var(--sand)]">Aviso legal</a>
-        <a href="/privacidad/" class="transition hover:text-[color:var(--sand)]">Privacidad</a>
+    <div class="mt-16 border-t border-border-deep pt-10">
+      <div class="flex flex-col justify-between gap-4 text-xs text-border md:flex-row">
+        <p>© {{ now.Format "2006" }} Gocres Studio. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+          <a href="/aviso-legal/" class="transition hover:text-sand">Aviso legal</a>
+          <a href="/privacidad/" class="transition hover:text-sand">Privacidad</a>
+          <a href="/cookies/" class="transition hover:text-sand">Cookies</a>
+        </div>
       </div>
     </div>
   </div>

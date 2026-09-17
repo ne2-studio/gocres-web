@@ -1,0 +1,19 @@
+{{- /*
+  Gocres wordmark lockup (wolf mark + "ocres" wordmark), matching the
+  Figma "Logo Gocres Horizontal Complejo Principal" component.
+  Params:
+    variant: "color" (default, ink-on-transparent, for light/cream sections)
+             or "negative" (cream-on-transparent, for the dark footer)
+    class:   extra classes for the wrapping element
+*/ -}}
+{{- $variant := .variant | default "color" -}}
+{{- $mark := "/images/logo/gocres-mark.svg" -}}
+{{- $wordmark := "/images/logo/gocres-wordmark.svg" -}}
+{{- if eq $variant "negative" -}}
+  {{- $mark = "/images/logo/gocres-mark-outline-negative.svg" -}}
+  {{- $wordmark = "/images/logo/gocres-wordmark-negative.svg" -}}
+{{- end -}}
+<span class="inline-flex items-center gap-2 {{ .class }}">
+  <img src="{{ $mark | relURL }}" alt="" class="h-full w-auto" aria-hidden="true" />
+  <img src="{{ $wordmark | relURL }}" alt="Gocres" class="h-[63%] w-auto" />
+</span>
