@@ -1,8 +1,12 @@
+{{- /* Figma's "Web - Gocres" nav has exactly 3 links: Branding | Casos de
+  éxito | Sobre mí. "Branding" now covers what /servicios/ used to (see
+  content/metodo.md), so /servicios/ stays out of the nav — like /casos/,
+  its content isn't deleted, just not linked yet. */ -}}
 {{- $nav := slice
-  (dict "url" "/servicios/" "label" "Servicios")
-  (dict "url" "/metodo/" "label" "Método")
-  (dict "url" "/casos/" "label" "Casos" "hidden" true)
-  (dict "url" "/about/" "label" "Estudio")
+  (dict "url" "/servicios/" "label" "Servicios" "hidden" true)
+  (dict "url" "/metodo/" "label" "Branding")
+  (dict "url" "/casos/" "label" "Casos de éxito" "hidden" true)
+  (dict "url" "/about/" "label" "Sobre mí")
 -}}
 <header id="site-header" class="sticky top-0 z-50 w-full border-b border-border bg-background">
   <div class="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 md:px-10">

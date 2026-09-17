@@ -1,73 +1,118 @@
 {{ define "main" }}
 <div class="pt-24 md:pt-40">
-  <section class="mx-auto max-w-[1440px] px-6 pb-24 md:grid md:grid-cols-12 md:gap-10 md:px-10 md:pb-32">
-    <div class="md:col-span-7">
-      <div class="reveal">
-        <p class="eyebrow text-muted-foreground">Método</p>
-      </div>
-      <div class="reveal mt-8" style="transition-delay:120ms">
-        <h1 class="display-xl text-foreground">
-          El camino no se improvisa. <span class="text-muted-foreground">Se recorre.</span>
-        </h1>
-      </div>
-      <div class="reveal mt-8" style="transition-delay:240ms">
-        <p class="max-w-xl text-lg text-muted-foreground">
-          Un método simple, calmado y probado. Cada fase reduce incertidumbre y acerca tu marca al lugar donde quiere estar.
-        </p>
-      </div>
+  <section class="mx-auto max-w-[1440px] px-6 pb-24 md:px-10 md:pb-32">
+    <div class="reveal max-w-4xl">
+      <h1 class="display-xl text-foreground">
+        A veces necesitas una marca. <span class="text-muted-foreground">Otras, entender qué le pasa a la que ya tienes.</span>
+      </h1>
     </div>
-    <div class="reveal mt-14 md:col-span-5 md:mt-0" style="transition-delay:200ms">
-      <div class="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
-        <img src="/images/footprints-path.jpg" alt="Huellas de un camino" class="h-full w-full object-cover">
+    <div class="reveal mt-8 max-w-2xl" style="transition-delay:120ms">
+      <p class="text-lg text-muted-foreground">
+        Desde crear una marca hasta replantear una que ya existe, cada proyecto necesita un punto de partida diferente.
+      </p>
+    </div>
+  </section>
+
+  <section id="branding" class="border-t border-border">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
+      <div class="md:col-span-7">
+        <div class="reveal flex items-center gap-4">
+          {{ partial "paw.html" (dict "class" "h-8 w-8 text-foreground") }}
+          <h2 class="display-lg text-foreground">Branding</h2>
+        </div>
+        <div class="reveal mt-10" style="transition-delay:120ms">
+          <p class="font-display text-2xl leading-snug text-foreground">Todo lo que necesitas para construir o evolucionar tu marca.</p>
+          <p class="mt-6 text-muted-foreground">
+            Trabajo el branding adaptándome a las necesidades de cada proyecto, desde la creación de una marca desde cero hasta la renovación de una identidad que ya existe. Dependiendo de lo que necesites, podemos trabajar la identidad visual completa o centrarnos en elementos concretos como el logotipo.
+          </p>
+        </div>
+        <div class="reveal mt-10" style="transition-delay:200ms">
+          <p class="eyebrow mb-4 text-muted-foreground">¿Qué puedo hacer por tu marca?</p>
+          <ul class="grid gap-3 text-foreground sm:grid-cols-2">
+            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Creo tu marca desde cero</li>
+            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Creo la identidad visual de tu marca</li>
+            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Diseño o mejoro tu logotipo</li>
+            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Renuevo tu marca</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal mt-4 md:col-span-5 md:mt-0" style="transition-delay:200ms">
+        <div class="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+          <img src="/images/founder-jaime.jpg" alt="Jaime, fundador de Gocres" class="h-full w-full object-cover">
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="border-t border-border">
+  <section id="metodologia" class="border-t border-border">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
+      <div class="reveal md:col-span-5">
+        <p class="eyebrow text-muted-foreground">Huellas de un camino</p>
+      </div>
+      <div class="reveal md:col-span-7" style="transition-delay:120ms">
+        <h2 class="display-lg text-foreground">El camino no se improvisa. <span class="text-muted-foreground">Se recorre.</span></h2>
+        <p class="mt-6 max-w-2xl text-muted-foreground">
+          Cuando trabajo en tu marca, sigo un método claro y ordenado que se divide en cuatro fases. Cada una tiene un propósito y nos ayuda a saber qué hacer y por qué antes de pasar a la siguiente.
+        </p>
+      </div>
+    </div>
+
     {{ $total := len site.Data.method }}
     {{ range $i, $p := site.Data.method }}
-    <div class="border-b border-border">
+    <div class="border-t border-border">
       <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
-        <div class="grid gap-10 md:col-span-9 lg:grid-cols-9">
-          <div class="lg:col-span-3">
+        <div class="grid gap-10 md:col-span-7 lg:grid-cols-9">
+          <div class="lg:col-span-4">
             <div class="reveal">
               <div class="flex items-center gap-3">
-                {{ partial "paw.html" (dict "class" "h-5 w-5 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 14 -14)) }}
-                <p class="font-display text-sm text-muted-foreground">{{ $p.n }} / 05</p>
+                {{ partial "paw.html" (dict "class" "h-4 w-4 text-foreground/50" "rotate" (cond (eq (mod $i 2) 1) 14 -14)) }}
+                <p class="font-display text-sm text-muted-foreground">{{ $p.n }} / {{ printf "%02d" $total }}</p>
               </div>
               <h2 class="display-lg mt-4 text-foreground">{{ $p.t }}</h2>
             </div>
           </div>
-          <div class="lg:col-span-6">
+          <div class="lg:col-span-5">
             <div class="reveal" style="transition-delay:120ms">
               <p class="font-display text-2xl leading-snug text-foreground">{{ $p.d }}</p>
               <p class="mt-6 text-muted-foreground">{{ $p.long }}</p>
             </div>
+            <div class="reveal mt-10" style="transition-delay:200ms">
+              <p class="eyebrow mb-4 text-muted-foreground">Objetivos</p>
+              <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-foreground">
+                {{ range $p.goals }}
+                <li class="flex items-center gap-2">
+                  {{ partial "paw.html" (dict "class" "h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}
+                  {{ . }}
+                </li>
+                {{ end }}
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="md:col-span-3">
-          <div class="reveal" style="transition-delay:200ms">
-            <p class="eyebrow mb-4 text-muted-foreground">Entregables</p>
-            <ul class="space-y-3 text-sm text-foreground">
-              {{ range $p.outputs }}
-              <li class="flex items-start gap-3">
-                {{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}
-                {{ . }}
-              </li>
-              {{ end }}
-            </ul>
+        <div class="reveal md:col-span-5" style="transition-delay:160ms">
+          <div class="relative aspect-[4/3.6] w-full overflow-hidden rounded-sm">
+            <img src="/images/founder-jaime.jpg" alt="Jaime, fundador de Gocres" class="h-full w-full object-cover">
           </div>
-          {{ if lt (add $i 1) $total }}
-          {{ partial "paw-trail.html" (dict "count" 5 "class" "mt-10 md:hidden") }}
-          {{ else }}
-          <div class="reveal mt-8" style="transition-delay:300ms">
-            <a href="/contacto/" class="inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground">Empecemos →</a>
-          </div>
-          {{ end }}
         </div>
       </div>
     </div>
     {{ end }}
+  </section>
+
+  <section class="border-t border-border">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
+      <div class="reveal md:col-span-6">
+        <h2 class="display-md text-foreground">¿No estás seguro por dónde empezar?</h2>
+      </div>
+      <div class="reveal md:col-span-6" style="transition-delay:120ms">
+        <p class="max-w-md text-muted-foreground">
+          Cuéntame en qué punto está tu negocio. Te ayudaré a entender qué necesitas y cuál puede ser el siguiente paso.
+        </p>
+        <a href="/contacto/" class="mt-6 inline-flex h-14 items-center gap-4 rounded-full bg-primary px-10 text-lg font-medium text-primary-foreground transition hover:opacity-90">
+          Hablemos <span aria-hidden>→</span>
+        </a>
+      </div>
+    </div>
   </section>
 </div>
 {{ end }}
