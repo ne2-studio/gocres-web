@@ -1,0 +1,12 @@
+{{- /* Re-encodes an assets/-pipeline photo as a capped-width JPEG (q82), so
+  large Figma exports don't ship at full export resolution/format. Params:
+  src (path under assets/), alt, class, width (target px, default 1200),
+  loading (default "lazy"). Never upscales past the source's own width. */ -}}
+{{- $target := .width | default 1200 -}}
+{{- $img := resources.Get .src -}}
+{{- if $img -}}
+  {{- $w := $target -}}
+  {{- if lt $img.Width $target -}}{{- $w = $img.Width -}}{{- end -}}
+  {{- $img = $img.Resize (printf "%dx q82 jpg" $w) -}}
+  <img src="{{ $img.RelPermalink }}" alt="{{ .alt }}" width="{{ $img.Width }}" height="{{ $img.Height }}" loading="{{ .loading | default "lazy" }}" class="{{ .class }}">
+{{- end -}}

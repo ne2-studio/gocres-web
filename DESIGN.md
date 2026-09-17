@@ -28,10 +28,10 @@ colors:
 typography:
   display-xl:
     fontFamily: Space Grotesk
-    fontSize: 120px
+    fontSize: 104px
     fontWeight: 500
-    lineHeight: 0.95
-    letterSpacing: -0.035em
+    lineHeight: 1.1
+    letterSpacing: -0.04em
   display-lg:
     fontFamily: Space Grotesk
     fontSize: 76px
