@@ -3,18 +3,22 @@
   d: "Primero descubrimos juntos qué hace especial a tu proyecto."
   long: "Lo primero es conocer tu proyecto más allá de lo que se ve a primera vista: de dónde viene, en qué consiste, a quién se dirige, qué quieres conseguir, qué necesita y qué ideas tienes en mente. Con toda esa información, analizo también el contexto en el que se encuentra para entender bien el punto de partida y encontrar aquello que puede hacer diferente a tu marca, exista ya o esté todavía por construir."
   goals: ["Conocer", "Contextualizar", "Detectar"]
+  img: "images/metodo/descubrir.png"
 - n: "02"
   t: "Definir"
   d: "Ahora toca encontrar el camino que mejor representa tu proyecto."
   long: "Todo lo que hemos descubierto juntos empieza ahora a convertirse en ideas. Desarrollo diferentes conceptos y posibles direcciones a partir de la información del proyecto, buscando distintas formas de representar aquello que lo hace especial. Después los ponemos en común y decidimos juntos por cuál merece la pena seguir avanzando antes de entrar de lleno en el diseño."
   goals: ["Explorar", "Conceptualizar", "Enfocar"]
+  img: "images/metodo/definir.png"
 - n: "03"
   t: "Construir"
   d: "Es momento de darle forma a la dirección que hemos elegido."
   long: "Es el momento de hacer que las ideas pasen a ser tangibles. Empiezo a desarrollar la identidad visual teniendo en cuenta las necesidades del proyecto y el concepto que hemos acordado. El proceso es iterativo: te enseño los avances, recojo tu feedback y ajusto lo necesario antes de continuar. Así podemos tomar decisiones juntos durante el proceso y construir tu marca poco a poco, sin esperar hasta el final para ver cómo va tomando forma."
   goals: ["Diseñar", "Iterar", "Afinar"]
+  img: "images/metodo/construir.jpg"
 - n: "04"
   t: "Entregar"
   d: "Tu marca está preparada para empezar a dejar huella."
   long: "Con la identidad terminada, dejo preparado todo lo necesario para que puedas empezar a utilizarla con facilidad y mantenerla coherente en tu día a día. A partir de aquí, toca empezar a utilizarla en tu web, redes, materiales y en todos esos lugares donde tu proyecto necesita estar presente."
   goals: ["Preparar", "Facilitar", "Guiar"]
+  img: "images/metodo/entregar.jpg"

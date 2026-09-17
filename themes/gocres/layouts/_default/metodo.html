@@ -1,9 +1,9 @@
 {{ define "main" }}
-<div class="pt-24 md:pt-40">
-  <section class="mx-auto max-w-[1440px] px-6 pb-24 md:px-10 md:pb-32">
+<div class="pt-16 md:pt-32">
+  <section class="mx-auto max-w-[1440px] px-6 pb-16 md:px-10 md:pb-32">
     <div class="reveal max-w-4xl">
       <h1 class="display-xl text-foreground">
-        A veces necesitas una marca. <span class="text-muted-foreground">Otras, entender qué le pasa a la que ya tienes.</span>
+        A veces necesitas una marca. <span class="text-[color:var(--accent-taupe)]">Otras, entender qué le pasa a la que ya tienes.</span>
       </h1>
     </div>
     <div class="reveal mt-8 max-w-2xl" style="transition-delay:120ms">
@@ -13,50 +13,59 @@
     </div>
   </section>
 
-  <section id="branding" class="border-t border-border">
-    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
+  {{/* BRANDING — sand overview panel */}}
+  <section id="branding" class="border-t border-border bg-secondary">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-32">
       <div class="md:col-span-7">
         <div class="reveal flex items-center gap-4">
           {{ partial "paw.html" (dict "class" "h-8 w-8 text-foreground") }}
           <h2 class="display-lg text-foreground">Branding</h2>
         </div>
-        <div class="reveal mt-10" style="transition-delay:120ms">
-          <p class="font-display text-2xl leading-snug text-foreground">Todo lo que necesitas para construir o evolucionar tu marca.</p>
-          <p class="mt-6 text-muted-foreground">
+        <div class="reveal mt-10 pl-0 md:pl-16" style="transition-delay:120ms">
+          <p class="font-display text-3xl font-normal leading-snug text-foreground">Todo lo que necesitas para construir o evolucionar tu marca.</p>
+          <p class="mt-6 text-base text-muted-foreground">
             Trabajo el branding adaptándome a las necesidades de cada proyecto, desde la creación de una marca desde cero hasta la renovación de una identidad que ya existe. Dependiendo de lo que necesites, podemos trabajar la identidad visual completa o centrarnos en elementos concretos como el logotipo.
           </p>
-        </div>
-        <div class="reveal mt-10" style="transition-delay:200ms">
-          <p class="eyebrow mb-4 text-muted-foreground">¿Qué puedo hacer por tu marca?</p>
-          <ul class="grid gap-3 text-foreground sm:grid-cols-2">
-            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Creo tu marca desde cero</li>
-            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Creo la identidad visual de tu marca</li>
-            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Diseño o mejoro tu logotipo</li>
-            <li class="flex items-start gap-3">{{ partial "paw.html" (dict "class" "mt-0.5 h-3.5 w-3.5 shrink-0 text-foreground/50" "rotate" -8) }}Renuevo tu marca</li>
-          </ul>
+          <div class="mt-10">
+            <p class="text-lg text-foreground">¿Qué puedo hacer por tu marca?</p>
+            <ul class="mt-4 grid gap-x-6 gap-y-0 text-sm text-foreground sm:grid-cols-2">
+              <li class="border-b border-[#bdb1a0] py-3">Creo tu marca desde cero</li>
+              <li class="border-b border-[#bdb1a0] py-3">Creo la identidad visual de tu marca</li>
+              <li class="border-b border-[#bdb1a0] py-3">Diseño o mejoro tu logotipo</li>
+              <li class="border-b border-[#bdb1a0] py-3">Renuevo tu marca</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="reveal mt-4 md:col-span-5 md:mt-0" style="transition-delay:200ms">
-        <div class="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
-          <img src="/images/founder-jaime.png" alt="Jaime, fundador de Gocres" class="h-full w-full object-cover">
+        <div class="relative aspect-[556/535] w-full overflow-hidden rounded-sm bg-white">
+          {{ partial "resized-img.html" (dict "src" "images/metodo/branding-mockup.jpg" "alt" "Mockup de una tarjeta de visita con el logotipo de Gocres" "class" "h-full w-full object-cover" "width" 1100) }}
+          <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <img src="/images/logo/gocres-wordmark.svg" alt="" aria-hidden="true" class="w-[34%] -rotate-[11deg] opacity-90 mix-blend-multiply">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="metodologia" class="border-t border-border">
-    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
+  {{/* METODOLOGÍA — dark intro */}}
+  <section class="relative isolate overflow-hidden bg-[color:var(--ink)] text-[color:var(--cream)]">
+    <div class="mx-auto grid max-w-[1440px] items-center gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-32">
       <div class="reveal md:col-span-5">
-        <p class="eyebrow text-muted-foreground">Huellas de un camino</p>
+        <div class="aspect-[529/400] w-full overflow-hidden rounded-sm">
+          {{ partial "resized-img.html" (dict "src" "images/metodo/huellas.jpg" "alt" "Huellas de un camino" "class" "h-full w-full object-cover" "width" 1100) }}
+        </div>
       </div>
       <div class="reveal md:col-span-7" style="transition-delay:120ms">
-        <h2 class="display-lg text-foreground">El camino no se improvisa. <span class="text-muted-foreground">Se recorre.</span></h2>
-        <p class="mt-6 max-w-2xl text-muted-foreground">
+        <h2 class="display-lg text-[color:var(--cream)]">El camino no se improvisa. <span class="text-[color:var(--accent-taupe)]">Se recorre.</span></h2>
+        <p class="mt-6 max-w-2xl text-lg text-[color:var(--cream)]/70">
           Cuando trabajo en tu marca, sigo un método claro y ordenado que se divide en cuatro fases. Cada una tiene un propósito y nos ayuda a saber qué hacer y por qué antes de pasar a la siguiente.
         </p>
       </div>
     </div>
+  </section>
 
+  <section id="metodologia">
     {{ $total := len site.Data.method }}
     {{ range $i, $p := site.Data.method }}
     <div class="border-t border-border">
@@ -90,8 +99,8 @@
           </div>
         </div>
         <div class="reveal md:col-span-5" style="transition-delay:160ms">
-          <div class="relative aspect-[4/3.6] w-full overflow-hidden rounded-sm">
-            <img src="/images/founder-jaime.png" alt="Jaime, fundador de Gocres" class="h-full w-full object-cover">
+          <div class="relative aspect-[4/3.6] w-full overflow-hidden rounded-sm bg-white">
+            {{ partial "resized-img.html" (dict "src" $p.img "alt" (printf "%s — fase del método Gocres" $p.t) "class" "h-full w-full object-cover" "width" 1100) }}
           </div>
         </div>
       </div>
@@ -99,16 +108,17 @@
     {{ end }}
   </section>
 
-  <section class="border-t border-border">
-    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-28">
-      <div class="reveal md:col-span-6">
-        <h2 class="display-md text-foreground">¿No estás seguro por dónde empezar?</h2>
+  {{/* CTA final — dark */}}
+  <section class="relative isolate overflow-hidden bg-[color:var(--ink)] text-[color:var(--cream)]">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-12 md:px-10 md:py-32">
+      <div class="reveal md:col-span-7">
+        <h2 class="display-lg text-[color:var(--cream)]">¿No estás seguro <span class="text-[color:var(--accent-taupe)]">por dónde empezar?</span></h2>
       </div>
-      <div class="reveal md:col-span-6" style="transition-delay:120ms">
-        <p class="max-w-md text-muted-foreground">
+      <div class="reveal md:col-span-5" style="transition-delay:120ms">
+        <p class="max-w-md text-lg text-[color:var(--cream)]/70">
           Cuéntame en qué punto está tu negocio. Te ayudaré a entender qué necesitas y cuál puede ser el siguiente paso.
         </p>
-        <a href="/contacto/" class="mt-6 inline-flex h-14 items-center gap-4 rounded-full bg-primary px-10 text-lg font-medium text-primary-foreground transition hover:opacity-90">
+        <a href="/contacto/" class="mt-6 inline-flex h-14 items-center gap-4 rounded-full bg-[color:var(--cream)] px-10 text-lg font-medium text-[color:var(--ink)] transition hover:opacity-90">
           Hablemos <span aria-hidden>→</span>
         </a>
       </div>
