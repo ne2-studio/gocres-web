@@ -393,9 +393,17 @@ round for action.**
 
 ## Do's and Don'ts
 
-- Do open every major section with a numbered `label-eyebrow` kicker
-  ("0X · Section Name") followed by a `display-lg`/`display-xl` headline —
-  it's the site's core structural signature.
+- Do open a section headline directly with a `display-lg`/`display-xl`
+  heading — most section headings (home, /metodo/, /about/, /casos/) have
+  NO eyebrow kicker above them per the current Figma file. Reserve
+  `label-eyebrow` for: per-item numbering inside a list/step (mirror
+  statements, method phases — "01", "02"…), a genuine label above a small
+  data cluster (contact info card fields, footer nav-column titles), or a
+  short standalone kicker line the design explicitly shows (e.g. "Un poco
+  sobre mí" before the /about/ pull-quote). When unsure whether a given
+  headline gets one, check the current Figma file rather than assuming
+  every section needs it — the older "0X · Section Name" chapter-numbered
+  kicker convention was dropped in the V2 redesign.
 - Do let hairline borders, tonal background blocks, and opacity do the
   work of hierarchy. Don't add drop shadows to cards, buttons, or nav —
   the design is deliberately flat.
