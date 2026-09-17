@@ -7,8 +7,9 @@
 /* ============================================================
    GOCRES — Design System
    Editorial · Premium · Boutique branding studio
-   Colors: #111310 · #232323 · #FFFFFF · #F9F3E9 · #DECFB7
+   Colors: #111310 · #232323 · #0C0C0C · #FFFFFF · #F9F3E9 · #DECFB7 · #9E8E73
    Type: Space Grotesk (display) · Work Sans (body)
+   Synced from Figma "Web - Gocres" (V2 - Web (Branding)) — see DESIGN.md
    ============================================================ */
 
 @theme inline {
@@ -26,9 +27,12 @@
   --color-surface-alt: var(--surface-alt);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
+  --color-ink-deep: var(--ink-deep);
   --color-cream: var(--cream);
   --color-sand: var(--sand);
+  --color-accent-taupe: var(--accent-taupe);
   --color-line: var(--line);
+  --color-border-deep: var(--border-deep);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-primary: var(--primary);
@@ -56,8 +60,10 @@
   /* Brand palette in oklch */
   --ink: oklch(0.16 0.005 90);          /* #111310 */
   --ink-soft: oklch(0.24 0.004 90);     /* #232323 */
+  --ink-deep: #0C0C0C;                  /* footer-only near-black */
   --cream: oklch(0.968 0.014 82);       /* #F9F3E9 */
   --sand: oklch(0.858 0.032 78);        /* #DECFB7 */
+  --accent-taupe: #9E8E73;              /* inline headline emphasis on cream */
 
   --background: var(--cream);
   --foreground: var(--ink);
@@ -69,7 +75,7 @@
   --secondary: var(--sand);
   --secondary-foreground: var(--ink);
   --muted: oklch(0.93 0.012 82);
-  --muted-foreground: oklch(0.42 0.008 80);
+  --muted-foreground: #5C5A54;
   --accent: var(--sand);
   --accent-foreground: var(--ink);
 
@@ -78,9 +84,10 @@
   --popover: var(--surface);
   --popover-foreground: var(--ink);
 
-  --border: oklch(0.87 0.014 82);
+  --border: #D9D3CA;
+  --border-deep: #33322E;               /* footer-only hairline, sits on --ink-deep */
   --line: oklch(0.82 0.018 82);
-  --input: oklch(0.87 0.014 82);
+  --input: #D9D3CA;
   --ring: var(--ink);
 
   --destructive: oklch(0.55 0.19 27);
