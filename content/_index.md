@@ -1,5 +1,5 @@
 ---
-title: "Gocres — La confianza se diseña"
-description: "Estudio boutique de branding, UX/UI y diseño digital. Ayudamos a empresas en crecimiento a transmitir el valor real de su negocio."
-ogDescription: "Diseñamos identidades y experiencias digitales que generan confianza desde el primer contacto."
+title: "Gocres — ¿Qué quieres que piensen tus clientes cuando te conozcan?"
+description: "Diseño de marca para empresas en crecimiento. Ayudo a transmitir el valor real de tu negocio desde el primer contacto."
+ogDescription: "Una marca bien construida genera confianza desde el primer contacto y conecta con las personas a las que quieres llegar."
 ---
