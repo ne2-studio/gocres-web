@@ -1,23 +1,28 @@
 ---
-version: alpha
+version: beta
 name: Gocres Editorial
 description: >
   Boutique branding-studio design system for gocres.com — a Hugo +
   Tailwind CSS v4 marketing site. Extracted from
-  themes/gocres/assets/css/main.css and the Hugo layouts/partials.
+  themes/gocres/assets/css/main.css, the Hugo layouts/partials, and the
+  "Web - Gocres" Figma file (V2 - Web (Branding), node 2002:2), which is
+  the current source of truth for new work.
 colors:
   ink: "#111310"
   ink-soft: "#232323"
+  ink-deep: "#0C0C0C"
   cream: "#F9F3E9"
   sand: "#DECFB7"
   surface: "#FFFFFF"
+  accent-taupe: "#9E8E73"
   primary: "{colors.ink}"
   neutral: "{colors.cream}"
   secondary: "{colors.sand}"
   on-surface: "{colors.ink}"
   muted: "oklch(0.93 0.012 82)"
-  muted-foreground: "oklch(0.42 0.008 80)"
-  border: "oklch(0.87 0.014 82)"
+  muted-foreground: "#5C5A54"
+  border: "#D9D3CA"
+  border-deep: "#33322E"
   line: "oklch(0.82 0.018 82)"
   error: "oklch(0.55 0.19 27)"
 typography:
@@ -94,12 +99,32 @@ components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.neutral}"
-    typography: "{typography.body-sm}"
+    typography: "{typography.body-lg}"
+    fontWeight: 500
     rounded: "{rounded.full}"
-    height: 56px
-    padding: 32px
+    height: 54px
+    padding: "16px 40px"
+    gap: 16px
   button-primary-hover:
     opacity: "0.9"
+  button-primary-compact:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.neutral}"
+    typography: "{typography.body-md}"
+    fontWeight: 500
+    rounded: "{rounded.full}"
+    padding: "12px 24px"
+    gap: 8px
+    note: "Header/nav CTA size — same pill, smaller footprint than button-primary."
+  button-on-tonal:
+    backgroundColor: "{colors.neutral}"
+    textColor: "{colors.on-surface}"
+    typography: "{typography.body-lg}"
+    fontWeight: 500
+    rounded: "{rounded.full}"
+    height: 54px
+    padding: "16px 40px"
+    note: "Primary-button shape inverted to a cream fill, used when the button sits on a sand/tonal section background instead of cream."
   button-secondary:
     backgroundColor: transparent
     textColor: "{colors.on-surface}"
@@ -156,6 +181,12 @@ components:
   nav-header-scrolled:
     backgroundColor: "color-mix(in oklch, {colors.neutral} 80%, transparent)"
     borderColor: "color-mix(in oklch, {colors.border} 60%, transparent)"
+  footer:
+    backgroundColor: "{colors.ink-deep}"
+    textColor: "{colors.border}"
+    borderColor: "{colors.border-deep}"
+    eyebrowColor: "{colors.sand}"
+    note: "Footer is a darker, dedicated near-black (#0C0C0C), not the ink (#111310) used elsewhere — treat it as its own tonal block, not a reuse of primary."
 omitted:
   - section: Elevation & Depth
     reason: "Flat design with no drop shadows in production; one unused shadow token is documented below for future elevated surfaces (modals, popovers)."
@@ -197,23 +228,33 @@ paper background, one earthy accent. Color is a scalpel, not a paintbrush.
   create high-contrast, editorial breaks in the page rhythm.
 - **Ink Soft (`#232323`):** A secondary near-black used sparingly for
   emphasis within body copy (e.g. an italicized word inside a headline).
+- **Ink Deep (`#0C0C0C`):** A dedicated, slightly darker near-black used
+  only for the site footer. Not a duplicate of ink — the footer is its own
+  tonal block, one shade darker than every other dark section.
 - **Cream (`#F9F3E9`):** The neutral. The default page background and the
   "paper" the whole site is printed on. Also used as reversed text/button
   color on dark (ink) sections.
 - **Sand (`#DECFB7`):** The secondary/accent. A warm earthy tan used for
-  secondary section backgrounds, hover states, active chip fills, and as
-  the one color allowed to carry emphasis inside dark sections (e.g. an
-  italicized word in the closing CTA headline). Never used for large
-  bodies of text.
+  secondary section backgrounds, hover states, active chip fills, and the
+  footer's eyebrow color. Never used for large bodies of text.
+- **Accent Taupe (`#9E8E73`):** A muted taupe used exclusively inline,
+  inside display headlines, to emphasize one phrase on a cream background
+  (e.g. "tus **clientes**"). On a sand-background headline, the emphasis
+  color switches to Muted Foreground (`#5C5A54`) instead, so the emphasized
+  word always stays readable against its own section background.
 - **Surface (`#FFFFFF`):** Pure white, reserved for cards that need to sit
   slightly above the cream background (testimonial cards, contact info
   panel).
-- **Border / Line:** Two closely related warm greys used exclusively for
-  1px hairline rules — the system's primary tool for separating content
-  without shadows or heavy boxes.
-- **Muted foreground:** A warm mid-grey used for secondary/supporting copy
-  wherever full-ink contrast would be too loud (eyebrows, captions, body
-  text that isn't the main point).
+- **Border / Line:** `border` (`#D9D3CA`) is the standard warm-grey
+  hairline (header bottom border, footer nav-link text). `border-deep`
+  (`#33322E`) is its dark-mode counterpart, used only inside the Ink Deep
+  footer. `line` is a closely related warm grey for secondary hairline
+  rules elsewhere. Together they're the system's primary tool for
+  separating content without shadows or heavy boxes.
+- **Muted foreground (`#5C5A54`):** A warm mid-grey used for
+  secondary/supporting copy wherever full-ink contrast would be too loud
+  (lead paragraphs under a headline, captions), and for in-headline
+  emphasis on sand-background sections (see Accent Taupe above).
 - **Error:** A muted brick red, present in the token set for form
   validation but not currently rendered anywhere in the UI.
 
@@ -305,15 +346,18 @@ round for action.**
 
 ## Components
 
-- **Buttons:** Two variants only. **Primary** is a solid ink pill with
-  cream text (`bg-primary`/`text-primary-foreground`), `rounded-full`,
-  56px tall for hero/CTA prominence or 44–48px for inline use, with an
-  arrow glyph (`→`) that nudges right on hover. **Secondary/outline** is a
+- **Buttons:** Solid ink pill with cream text (`bg-primary`/
+  `text-primary-foreground`), `rounded-full`, with an arrow glyph (`→`)
+  that nudges right on hover, in two sizes: **`button-primary`** (54px
+  tall, `16px 40px` padding, `body-lg`/500 label) for hero and CTA
+  prominence, and **`button-primary-compact`** (`12px 24px` padding,
+  `body-md`/500 label) for the header nav CTA. On a tonal (sand)
+  background, use **`button-on-tonal`** — the same shape/size as
+  `button-primary` but inverted to a cream fill with ink text, so the
+  button never disappears against its section. **Secondary/outline** is a
   transparent pill with a `border-border` outline that fills with the
-  secondary (sand) color on hover. On dark (ink) sections, primary buttons
-  invert to a cream fill with ink text. A **text-link** variant (underline
-  via `border-b`) is used for lower-emphasis links like "Conocer mi
-  historia."
+  secondary (sand) color on hover. A **text-link** variant (underline via
+  `border-b`) is used for lower-emphasis links like "Conocer mi historia."
 - **Chips:** Toggle-style selection chips used in the contact form
   (service type, budget range). Default state is an outlined pill;
   `.chip.is-active` fills with the primary (ink) color and flips text to
@@ -341,7 +385,13 @@ round for action.**
   gains a translucent blurred cream background and a hairline bottom
   border once the page scrolls (`#site-header.is-scrolled`), via
   `backdrop-filter: blur(12px)` and `color-mix()` transparency rather than
-  a hard color swap.
+  a hard color swap. Even at rest, the header carries a permanent 1px
+  `border`-colored (`#D9D3CA`) bottom hairline against the cream background.
+- **Footer:** The one section that is never cream, sand, or ink — it uses
+  its own dedicated `ink-deep` (`#0C0C0C`) background with `border-deep`
+  (`#33322E`) hairlines, sand-colored eyebrow labels, and `border`-colored
+  (`#D9D3CA`) link text, so treat it as a distinct tonal block rather than
+  reusing the primary dark-section styling.
 
 ## Do's and Don'ts
 
