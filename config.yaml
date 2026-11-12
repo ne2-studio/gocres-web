@@ -1,6 +1,7 @@
 title: Gocres
 theme: gocres
 baseURL: https://www.gocres.studio/
+enableRobotsTXT: true
 languageCode: es-es
 defaultContentLanguage: es
 languages:

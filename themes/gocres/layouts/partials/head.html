@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ $title }}</title>
+{{ if or .IsPage .IsHome }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="Gocres">
 <meta name="theme-color" content="#111310">
